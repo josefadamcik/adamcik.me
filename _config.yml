@@ -150,8 +150,6 @@ assets:
     - _assets/image
     - _assets/img
     - _assets/js
-    - _assets/bower_components/photoswipe/dist
-    - _assets/bower_components/photoswipe/dist/default-skin
   raw_precompile:
     - default-skin.png
     - default-skin.svg
