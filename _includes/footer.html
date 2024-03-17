@@ -1,0 +1,47 @@
+<footer class="center">
+  <div class="measure">
+      {{- site.description | escape -}}
+      {%- if site.email -%}<br><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a>{%- endif -%}
+      {%- if site.show_social_icons -%}
+        {%- include social_links.html -%}
+      {%- endif -%}
+      <p class="licence"><small>Content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY-4.0</a> <br>Built with <a href="https://jekyllrb.com" target="_blank">jekyll</a> and <a href="https://github.com/johnotander/pixyll" taregt="_blank">Pixyll theme</a>.<br><a href="/privacy/website.html">privacy policy</a></small></p>
+  </div>
+</footer>
+
+{% if site.enable_anchorjs %}<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3, article h4, article h5, article h6');
+</script>{% endif %}
+
+{% asset gallery.js %}
+<script>
+    initPhotoSwipeFromDOM('.gallery');
+    // wouldn't work in IE8 but that just means no fancy photobox for IE8. And honestly I am perfectly 
+    // fine with that. Get a browser.
+    // document.addEventListener("DOMContentLoaded", function(event) { 
+      // initPhotoSwipeFromDOM('.gallery_{{gallery.name}}');
+    // });
+</script>
+
+{% if jekyll.environment == "production" %}
+<!-- Matomo, measurement at the end -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//vps.josefadamcik.cz/matomo/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+{% endif %}
+
