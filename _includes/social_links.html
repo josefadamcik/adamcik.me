@@ -10,6 +10,9 @@
     {% endif %}
     <a rel="me" class="fa fa-brands fa-mastodon" href="https://mstdn.social/@josefadamcik"></a>
     <a rel="me" class="fa fa-brands fa-mastodon" href="https://dice.camp/@josefadamcik"></a>
+    {% if site.bluesky_username %}
+      <a rel="me" class="fa fa-brands fa-bluesky" href="https://bsky.app/profile/{{ site.bluesky_username }}"></a>
+    {% endif %}
     {% if site.github_username %}
       <a rel="me" class="fa fa-github" href="https://github.com/{{ site.github_username }}"></a>
     {% endif %}
